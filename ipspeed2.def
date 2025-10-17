@@ -1,0 +1,18 @@
+;------------------------------------------------------------------------
+;| IPSPEED.DEF FILE
+;|
+;| Copyright (C) 1996 Michael Bock
+;+------------------------------------------------------------------------
+
+NAME            IPSPEED WINDOWAPI
+
+DESCRIPTION     'IPSpeed 1.02 for OS/2 TCP/IP (C) 1996/97 Michael Bock'
+
+EXPORTS         MainDlgProc                     @1
+                NewDiagProc                     @2
+                NewTextProc                     @3
+
+IMPORTS         __ioctl = TCPIPDLL.14
+                __soclose = TCPIPDLL.28
+                __socket = TCPIPDLL.79
+                __sock_init = TCPIPDLL.90

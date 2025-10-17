@@ -1,0 +1,67 @@
+
+/* OS/2 Warp Resource Script File - Created by Universal Resource Editor */
+
+#define INCL_WINSYS
+#define INCL_WINSTDDLGS
+#define INCL_WINSTDSPIN
+#define INCL_NLS
+#define INCL_SW
+
+#include <os2.h>
+
+#include "ipspeed.h"
+
+DLGTEMPLATE DLG_IPSPEED 437
+BEGIN
+    DIALOG "IP Speed", DLG_IPSPEED, 73, 105, 173, 59, FS_NOBYTEALIGN |
+                FS_BORDER | WS_CLIPSIBLINGS | WS_SAVEBITS | WS_VISIBLE,
+                FCF_TITLEBAR | FCF_SYSMENU | FCF_MINBUTTON
+    BEGIN
+        CONTROL "Interface:",          ST_INTERFACE, 6, 47, 32, 8, WC_STATIC,
+                                            SS_TEXT | WS_GROUP | WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "Interface",           CX_INTERFACE, 36, 6, 79, 50, WC_COMBOBOX,
+                                            CBS_DROPDOWNLIST | WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "Nominal speed: 0 cps", ST_NOMINALSPEEDCPS, 6, 35, 93, 8,
+                                            WC_STATIC, SS_TEXT | WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "",                    FRAME_DIAG, 117, 32, 53, 24, WC_STATIC,
+                                            SS_FGNDFRAME | WS_VISIBLE
+        CONTROL "Total bytes",         GB_TOTAL, 4, 4, 54, 27, WC_STATIC,
+                                            SS_GROUPBOX | WS_GROUP | WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "0 in",                ST_TOTALIN, 8, 15, 48, 8, WC_STATIC,
+                                            SS_TEXT | WS_VISIBLE
+                PRESPARAMS PP_FOREGROUNDCOLORINDEX, CLR_BLUE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "0 out",               ST_TOTALOUT, 8, 6, 48, 8, WC_STATIC,
+                                            SS_TEXT | WS_VISIBLE
+                PRESPARAMS PP_FOREGROUNDCOLORINDEX, CLR_DARKPINK
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "Estimated cps",       GP_ESTIMATED, 61, 4, 54, 27, WC_STATIC,
+                                            SS_GROUPBOX | WS_GROUP | WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "0 in",                ST_ESTIN, 64, 15, 48, 8, WC_STATIC,
+                                            SS_TEXT | WS_VISIBLE
+                PRESPARAMS PP_FOREGROUNDCOLORINDEX, CLR_BLUE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "0 out",               ST_ESTOUT, 64, 6, 48, 8, WC_STATIC,
+                                            SS_TEXT | WS_VISIBLE
+                PRESPARAMS PP_FOREGROUNDCOLORINDEX, CLR_DARKPINK
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "Max cps",             GB_MAXCPS, 117, 4, 54, 27, WC_STATIC,
+                                            SS_GROUPBOX | WS_GROUP | WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "0 in",                ST_MAXIN, 120, 15, 48, 8, WC_STATIC,
+                                            SS_TEXT | WS_VISIBLE
+                PRESPARAMS PP_FOREGROUNDCOLORINDEX, CLR_BLUE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "0 out",               ST_MAXOUT, 120, 6, 48, 8, WC_STATIC,
+                                            SS_TEXT | WS_VISIBLE
+                PRESPARAMS PP_FOREGROUNDCOLORINDEX, CLR_DARKPINK
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+    END
+END
+
+ICON        DLG_IPSPEED D:\C\IPSPEED\NETWORK.ICO

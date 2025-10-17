@@ -1,0 +1,9 @@
+.\IPSPEED.res: \
+    d:\c\ipspeed\IPSPEED.RC \
+    {$(INCLUDE)}ipspeed.h \
+    IPSPEEDD.MAK
+
+.\IPSPEED.obj: \
+    d:\c\ipspeed\IPSPEED.C \
+    {d:\c\ipspeed;$(INCLUDE);}ipspeed.h \
+    IPSPEEDD.MAK

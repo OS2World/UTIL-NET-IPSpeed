@@ -1,0 +1,13 @@
+;------------------------------------------------------------------------
+;| IPSPEED.DEF FILE
+;|
+;| Copyright (C) 1996 Michael Bock
+;+------------------------------------------------------------------------
+
+NAME            IPSPEED WINDOWAPI
+
+DESCRIPTION     'IPSpeed 1.02 for OS/2 TCP/IP (C) 1996/97 Michael Bock'
+
+EXPORTS         MainDlgProc                     @1
+                NewDiagProc                     @2
+                NewTextProc                     @3

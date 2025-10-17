@@ -1,0 +1,10 @@
+.\IPSPEED.res: \
+    d:\c\ipspeed\IPSPEED.RC \
+    {$(INCLUDE)}ipspeed.h \
+    MAKEFILE
+
+.\IPSPEED.obj: \
+    d:\c\ipspeed\IPSPEED.C \
+    {d:\c\ipspeed;$(INCLUDE);}ipspeed.h \
+    MAKEFILE
+

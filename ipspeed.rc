@@ -1,0 +1,143 @@
+
+/* OS/2 Warp Resource Script File - Created by Universal Resource Editor */
+
+#define INCL_WINSYS
+#define INCL_WINSTDDLGS
+#define INCL_WINSTDSPIN
+#define INCL_NLS
+#define INCL_SW
+
+#include <os2.h>
+
+#include "ipspeed.h"
+
+DLGTEMPLATE DLG_ABOUT 437
+BEGIN
+    DIALOG  "About IP Speed", DLG_ABOUT, 12, 23, 130, 70,
+            WS_VISIBLE | WS_SAVEBITS | WS_ANIMATE,
+            FCF_SYSMENU | FCF_TITLEBAR | FCF_NOBYTEALIGN
+    BEGIN
+        ICON            DLG_IPSPEED, 0, 5, 5, 20, 16, WS_GROUP
+        CTEXT           "IP Speed", 0, 0, 55, 130, 14, DT_VCENTER
+                        PRESPARAMS PP_FONTNAMESIZE, "14.Tms Rmn"
+        CTEXT           "Version 1.022", 0, 0, 40, 130, 14, DT_VCENTER
+                        PRESPARAMS PP_FONTNAMESIZE, "14.Tms Rmn"
+        CTEXT           "Copyright (c) 1996-98 Michael Bock", 0, 0, 25, 130, 14,
+                        DT_VCENTER
+                        PRESPARAMS PP_FONTNAMESIZE, "10.Tms Rmn"
+        DEFPUSHBUTTON   "OK", DID_OK, 85, 5, 40, 16
+                        PRESPARAMS PP_FONTNAMESIZE, "14.Tms Rmn"
+    END
+END
+
+DLGTEMPLATE DLG_IPSPEED 437
+BEGIN
+    DIALOG "IP Speed", DLG_IPSPEED, 74, 105, 173, 59, FS_NOBYTEALIGN |
+                FS_BORDER | WS_CLIPSIBLINGS | WS_SAVEBITS | WS_VISIBLE,
+                FCF_TITLEBAR | FCF_SYSMENU | FCF_MINBUTTON
+    BEGIN
+        CONTROL "Interface:",          ST_INTERFACE, 6, 47, 32, 8, WC_STATIC,
+                                            SS_TEXT | WS_GROUP | WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "Interface",           CX_INTERFACE, 36, 6, 79, 50, WC_COMBOBOX,
+                                            CBS_DROPDOWNLIST | WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "Nominal speed: 0 cps", ST_NOMINALSPEEDCPS, 6, 35, 93, 8,
+                                            WC_STATIC, SS_TEXT | WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "",                    FRAME_DIAG, 117, 32, 53, 24, WC_STATIC,
+                                            SS_FGNDFRAME | WS_VISIBLE
+        CONTROL "Total bytes",         GB_TOTAL, 4, 4, 54, 27, WC_STATIC,
+                                            SS_GROUPBOX | WS_GROUP | WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "0 in",                ST_TOTALIN, 8, 15, 48, 8, WC_STATIC,
+                                            SS_TEXT | WS_VISIBLE
+                PRESPARAMS PP_FOREGROUNDCOLORINDEX, CLR_BLUE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "0 out",               ST_TOTALOUT, 8, 6, 48, 8, WC_STATIC,
+                                            SS_TEXT | WS_VISIBLE
+                PRESPARAMS PP_FOREGROUNDCOLORINDEX, CLR_DARKPINK
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "Average cps",       GB_ESTIMATED, 61, 4, 54, 27, WC_STATIC,
+                                            SS_GROUPBOX | WS_GROUP | WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "0 in",                ST_ESTIN, 64, 15, 48, 8, WC_STATIC,
+                                            SS_TEXT | WS_VISIBLE
+                PRESPARAMS PP_FOREGROUNDCOLORINDEX, CLR_BLUE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "0 out",               ST_ESTOUT, 64, 6, 48, 8, WC_STATIC,
+                                            SS_TEXT | WS_VISIBLE
+                PRESPARAMS PP_FOREGROUNDCOLORINDEX, CLR_DARKPINK
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "Max cps",             GB_MAXCPS, 117, 4, 54, 27, WC_STATIC,
+                                            SS_GROUPBOX | WS_GROUP | WS_VISIBLE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "0 in",                ST_MAXIN, 120, 15, 48, 8, WC_STATIC,
+                                            SS_TEXT | WS_VISIBLE
+                PRESPARAMS PP_FOREGROUNDCOLORINDEX, CLR_BLUE
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL "0 out",               ST_MAXOUT, 120, 6, 48, 8, WC_STATIC,
+                                            SS_TEXT | WS_VISIBLE
+                PRESPARAMS PP_FOREGROUNDCOLORINDEX, CLR_DARKPINK
+                PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+    END
+END
+
+ICON        DLG_IPSPEED NETWORK.ICO
+
+ACCELTABLE DLG_IPSPEED
+BEGIN
+    "A", CMD_ALWAYSONTOP, CONTROL
+    "a", CMD_ALWAYSONTOP, CONTROL
+    "B", CMD_TITLEBAR, CONTROL
+    "b", CMD_TITLEBAR, CONTROL
+    "M", CMD_RESETMAX, CONTROL
+    "m", CMD_RESETMAX, CONTROL
+    "T", CMD_RESETTOTAL, CONTROL
+    "t", CMD_RESETTOTAL, CONTROL
+    "R", CMD_RESET, CONTROL
+    "r", CMD_RESET, CONTROL
+    "Q", CMD_QUIT, CONTROL
+    "q", CMD_QUIT, CONTROL
+    "X", CMD_QUIT, ALT
+    "x", CMD_QUIT, ALT
+END
+
+MENU MENU_IPSPEED
+BEGIN
+    PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+    SUBMENU "~Reset", CMD_RESETMENU
+    BEGIN
+        MENUITEM "~All\tCtrl-R", CMD_RESET
+        MENUITEM "~Max\tCtrl-M", CMD_RESETMAX
+        MENUITEM "~Total\tCtrl-T", CMD_RESETTOTAL
+    END
+    SUBMENU "~View", CMD_SHOWMENU
+    BEGIN
+        MENUITEM "~All", CMD_SHOWALL
+        MENUITEM "~Graph", CMD_SHOWDIAG
+        MENUITEM "~Total", CMD_SHOWTOTAL
+        MENUITEM "A~verage", CMD_SHOWESTIMATED
+        MENUITEM "~Max", CMD_SHOWMAX
+    END
+    SUBMENU "Interval for a~verage", CMD_AVERAGEMENU
+    BEGIN
+        MENUITEM "1 second", CMD_AVERAGEVAL + 1
+        MENUITEM "2 seconds", CMD_AVERAGEVAL + 2
+        MENUITEM "3 seconds", CMD_AVERAGEVAL + 3
+        MENUITEM "4 seconds", CMD_AVERAGEVAL + 4
+        MENUITEM "5 seconds", CMD_AVERAGEVAL + 5
+        MENUITEM "10 seconds", CMD_AVERAGEVAL + 10
+        MENUITEM "15 seconds", CMD_AVERAGEVAL + 15
+        MENUITEM "20 seconds", CMD_AVERAGEVAL + 20
+        MENUITEM "30 seconds", CMD_AVERAGEVAL + 30
+    END
+    MENUITEM "S~moothed curve", CMD_SMOOTHED
+    MENUITEM "~Always on top\tCtrl-A", CMD_ALWAYSONTOP
+    MENUITEM "~Titlebar\tCtrl-B", CMD_TITLEBAR
+    MENUITEM "~Set default interface", CMD_DEFAULTINTERFACE
+    MENUITEM "", 0, MIS_SEPARATOR
+    MENUITEM "A~bout", CMD_ABOUT
+    MENUITEM "~Quit\tCtrl-Q", CMD_QUIT
+END
+
